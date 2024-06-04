@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test SPID Authentication</title>
+</head>
+<body>
+  <h1>Test SPID Authentication</h1>
+  <form id="spid-form">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name"><br><br>
+    <label for="surname">Surname:</label>
+    <input type="text" id="surname" name="surname"><br><br>
+    <label for="fiscalCode">Fiscal Code:</label>
+    <input type="text" id="fiscalCode" name="fiscalCode"><br><br>
+    <button type="button" onclick="simulateAuth()">Simulate Authentication</button>
+  </form>
+
+  <script>
+    function simulateAuth() {
+      const name = document.getElementById('name').value;
+      const surname = document.getElementById('surname').value;
+      const fiscalCode = document.getElementById('fiscalCode').value;
+      const redirectUrl = `proteggime://callback/callback?name=${name}&surname=${surname}&fiscal_code=${fiscalCode}`;
+      window.location.href = redirectUrl;
+    }
+  </script>
+</body>
+</html>
